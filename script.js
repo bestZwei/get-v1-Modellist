@@ -1,6 +1,16 @@
 document.getElementById('getModelsButton').onclick = async function() {
     const proxyUrl = document.getElementById('proxyUrl').value;
     const apiKey = document.getElementById('apiKey').value;
+    const loading = document.getElementById('loading');
+    const modelList = document.getElementById('modelList');
+    
+    if (!proxyUrl || !apiKey) {
+        alert('请输入代理URL和API密钥');
+        return;
+    }
+
+    loading.classList.remove('hidden');
+    modelList.value = '';
 
     try {
         const response = await fetch(proxyUrl + '/v1/models', {
@@ -13,12 +23,14 @@ document.getElementById('getModelsButton').onclick = async function() {
         if (response.ok) {
             const data = await response.json();
             const modelNames = data.data.map(model => model.id).join(', ');
-            document.getElementById('modelList').value = modelNames;
+            modelList.value = modelNames;
         } else {
-            document.getElementById('modelList').value = '获取模型列表失败，请检查代理URL和API密钥。';
+            alert('获取模型列表失败，请检查代理URL和API密钥。');
         }
     } catch (error) {
-        document.getElementById('modelList').value = '发生错误：' + error.message;
+        alert('发生错误：' + error.message);
+    } finally {
+        loading.classList.add('hidden');
     }
 };
 

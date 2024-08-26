@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
@@ -21,6 +21,7 @@ body {
 
 h1 {
     color: #333;
+    margin-bottom: 20px;
 }
 
 input {
@@ -42,6 +43,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
@@ -69,4 +71,14 @@ textarea {
 
 #copyButton:hover {
     background-color: #218838;
+}
+
+#loading {
+    font-size: 16px;
+    color: #007bff;
+    margin-top: 20px;
+}
+
+.hidden {
+    display: none;
 }
