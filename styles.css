@@ -7,7 +7,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    user-select: none; /* 禁用全局选择 */
+    user-select: none; /* 禁用页面内其他元素的文本选择 */
 }
 
 .container {
@@ -26,7 +26,7 @@ h1 {
 }
 
 input, textarea {
-    user-select: text; /* 允许在输入框和文本框中选择文本 */
+    user-select: text; /* 允许文本框内的文本选择 */
 }
 
 input {
@@ -64,7 +64,7 @@ textarea {
     border-radius: 4px;
     resize: none;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 16px; /* 增大字体 */
     font-family: 'Times New Roman', Times, serif;
     background-color: #f9f9f9;
 }
@@ -91,6 +91,7 @@ textarea {
 footer {
     margin-top: 20px;
     font-size: 14px;
+    user-select: text; /* 允许页脚文本选择 */
 }
 
 footer a {
