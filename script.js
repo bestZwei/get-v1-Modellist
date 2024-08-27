@@ -72,11 +72,17 @@ document.getElementById('checkModelsButton').onclick = async function() {
 
             // Step 2: 检测每个模型
             for (const modelId of modelIds) {
-                const checkResponse = await fetch(proxyUrl + '/v1/models/' + modelId, {
-                    method: 'GET',
+                const checkResponse = await fetch(proxyUrl + '/v1/completions', {
+                    method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${apiKey}`
-                    }
+                        'Authorization': `Bearer ${apiKey}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        model: modelId,
+                        prompt: "Test",
+                        max_tokens: 1
+                    })
                 });
 
                 // Step 3: 如果请求成功，说明模型可用
