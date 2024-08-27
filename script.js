@@ -9,9 +9,9 @@ document.getElementById('getModelsButton').onclick = async function() {
         return;
     }
 
-    // 确保代理链接以 /v1 结尾
+    // 确保代理链接以 /v1 结尾，并兼容 /v1/completions 和 /v1/chat/completions
     let apiUrl = proxyUrl;
-    if (!apiUrl.endsWith('/v1')) {
+    if (!apiUrl.endsWith('/v1') && !apiUrl.endsWith('/v1/completions') && !apiUrl.endsWith('/v1/chat/completions')) {
         if (apiUrl.endsWith('/')) {
             apiUrl += 'v1';
         } else {
