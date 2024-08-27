@@ -27,6 +27,7 @@ h1 {
 
 input, textarea {
     user-select: text; /* 允许文本框内的文本选择 */
+    cursor: text;     /* 显示文本光标 */
 }
 
 input {
@@ -36,6 +37,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    outline: none;
 }
 
 button {
@@ -67,6 +69,7 @@ textarea {
     font-size: 16px; /* 增大字体 */
     font-family: 'Times New Roman', Times, serif;
     background-color: #f9f9f9;
+    outline: none;
 }
 
 #copyButton {
