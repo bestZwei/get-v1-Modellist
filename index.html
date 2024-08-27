@@ -16,14 +16,11 @@
         <input type="text" id="proxyUrl" placeholder="输入代理URL" />
         <input type="text" id="apiKey" placeholder="输入API密钥" />
         <button id="getModelsButton">获取模型列表</button>
-
-        <textarea id="modelList" placeholder="所有模型将显示在这里..." readonly></textarea>
+        
+        <textarea id="modelList" placeholder="模型列表将显示在这里..." readonly></textarea>
         <button id="copyButton">一键复制</button>
-
-        <button id="checkModelsButton">检测可用模型</button>
-        <textarea id="availableModels" placeholder="可用模型将显示在这里..." readonly></textarea>
-
-        <div id="loading" class="hidden">加载中...</div>
+        
+        <div id="loading" class="hidden"><span class="loader"></span></div>
     </div>
 
     <footer>
