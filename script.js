@@ -9,15 +9,11 @@ document.getElementById('getModelsButton').onclick = async function() {
         return;
     }
 
-    // 构建 API 地址
-    let apiUrl = new URL(proxyUrl);
-    apiUrl.pathname = '/v1/models';
-
     loading.classList.remove('hidden');
     modelList.value = '';
 
     try {
-        const response = await fetch(apiUrl.toString(), {
+        const response = await fetch(proxyUrl + '/v1/models', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${apiKey}`
