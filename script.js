@@ -9,21 +9,15 @@ document.getElementById('getModelsButton').onclick = async function() {
         return;
     }
 
-    // 确保代理链接以 /v1 结尾
-    let apiUrl = proxyUrl;
-    if (!apiUrl.endsWith('/v1')) {
-        if (apiUrl.endsWith('/')) {
-            apiUrl += 'v1';
-        } else {
-            apiUrl += '/v1';
-        }
-    }
+    // 构建 API 地址
+    let apiUrl = new URL(proxyUrl);
+    apiUrl.pathname = '/v1/models';
 
     loading.classList.remove('hidden');
     modelList.value = '';
 
     try {
-        const response = await fetch(apiUrl + '/models', {
+        const response = await fetch(apiUrl.toString(), {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${apiKey}`
