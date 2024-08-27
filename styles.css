@@ -52,14 +52,14 @@ button:hover {
 
 textarea {
     width: calc(100% - 22px);
-    height: 200px;
+    height: 100px;
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: none;
     box-sizing: border-box;
-    font-size: 16px; /* 增大字体 */
+    font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
     background-color: #f9f9f9;
 }

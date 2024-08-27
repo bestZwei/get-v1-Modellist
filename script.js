@@ -41,3 +41,39 @@ document.getElementById('copyButton').onclick = function() {
     document.execCommand('copy');
     alert('模型列表已复制到剪贴板');
 };
+
+document.getElementById('checkModelsButton').onclick = async function() {
+    const proxyUrl = document.getElementById('proxyUrl').value;
+    const apiKey = document.getElementById('apiKey').value;
+    const availableModels = document.getElementById('availableModels');
+    const loading = document.getElementById('loading');
+    
+    if (!proxyUrl || !apiKey) {
+        alert('请输入代理URL和API密钥');
+        return;
+    }
+
+    loading.classList.remove('hidden');
+    availableModels.value = '';
+
+    try {
+        const response = await fetch(proxyUrl + '/v1/models', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${apiKey}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            const available = data.data.filter(model => model.status === 'available').map(model => model.id).join(', ');
+            availableModels.value = available;
+        } else {
+            alert('获取可用模型失败，请检查代理URL和API密钥。');
+        }
+    } catch (error) {
+        alert('发生错误：' + error.message);
+    } finally {
+        loading.classList.add('hidden');
+    }
+};
