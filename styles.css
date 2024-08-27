@@ -7,6 +7,7 @@ body {
     flex-direction: column;
     align-items: center;
     height: 100vh;
+    user-select: none; /* 禁用全局选择 */
 }
 
 .container {
@@ -22,6 +23,10 @@ body {
 h1 {
     color: #333;
     margin-bottom: 20px;
+}
+
+input, textarea {
+    user-select: text; /* 允许在输入框和文本框中选择文本 */
 }
 
 input {
@@ -59,7 +64,7 @@ textarea {
     border-radius: 4px;
     resize: none;
     box-sizing: border-box;
-    font-size: 16px; /* 增大字体 */
+    font-size: 16px;
     font-family: 'Times New Roman', Times, serif;
     background-color: #f9f9f9;
 }
