@@ -8,6 +8,7 @@ document.getElementById('getModelsButton').onclick = async function() {
         alert('请输入代理URL和API密钥');
         return;
     }
+    
 
     loading.classList.remove('hidden');
     modelList.value = '';
