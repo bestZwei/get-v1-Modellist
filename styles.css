@@ -1,13 +1,12 @@
 body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+    background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    justify-content: center;
 }
 
 .container {
@@ -16,7 +15,7 @@ body {
     background: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
@@ -25,19 +24,13 @@ h1 {
     margin-bottom: 20px;
 }
 
-input, textarea {
+input {
     margin: 10px 0;
     padding: 10px;
     width: calc(100% - 22px);
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, textarea:focus {
-    border-color: #007bff;
-    outline: none;
 }
 
 button {
@@ -50,17 +43,23 @@ button {
     cursor: pointer;
     font-size: 16px;
     margin-top: 10px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #0056b3;
-    transform: translateY(-2px);
 }
 
 textarea {
+    width: calc(100% - 22px);
     height: 200px;
-    font-size: 16px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+    box-sizing: border-box;
+    font-size: 16px; /* 增大字体 */
     font-family: 'Times New Roman', Times, serif;
     background-color: #f9f9f9;
 }
@@ -96,18 +95,4 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
-}
-
-.loader {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid #007bff;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }
