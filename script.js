@@ -32,7 +32,7 @@ document.getElementById('getModelsButton').onclick = async function() {
 
         if (response.ok) {
             const data = await response.json();
-            const modelNames = data.data.map(model => model.id).join(', ');
+            const modelNames = data.data.map(model => model.id).join(',');
             modelList.value = modelNames;
         } else {
             alert('获取模型列表失败，请检查代理URL和API密钥。');
